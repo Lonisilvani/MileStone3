@@ -1,0 +1,108 @@
+/*Loni Silvani
+CST-105
+Lisa Hebert
+March 25, 2018
+Program runs array list of NFL Players, or is the manager of what is expected to input. 
+*/
+
+
+package draftfinalproject;
+
+//import ArrayList
+import java.util.ArrayList;
+
+public class Manager {
+
+    //declare and initialize ArrayList<>
+    ArrayList<NFLPlayer> availablePlayers = new ArrayList<>();
+
+    //Method to create players based on int x constructor
+    public void createPlayers(int x) {
+        for (int cnt = 0; cnt < x; cnt++) {
+
+            //creates new NFLPlayer
+            NFLPlayer player = new NFLPlayer();
+
+            //sets random first name for each player
+            String[] randomFirstNames = new String[]{"Milo", "Michael", "Dwight", "Jim", "Kevin", "Stanley", "Christopher",
+                "Angel", "Meredith", "Phyllip"};
+            String randomFirstName = randomFirstNames[(int) Math.floor(Math.random() * randomFirstNames.length)];
+            player.setFirstName(randomFirstName);
+
+            //sets random last name for each player 
+            String[] randomLastNames = new String[]{"Gomez", "Scott", "Schrute", "Halbert", "Malone", "Hudson", "Lenender",
+                "Martin", "Palmer", "Vance"};
+            String randomLastName = randomLastNames[(int) Math.floor(Math.random() * randomLastNames.length)];
+            player.setLastName(randomLastName);
+
+            //sets random position for each player
+            String[] randomPositions = new String[]{"Center", "Offensive Guard", "Offensive Tackle", "Quarterback", "Running Back",
+                "Wide Receiver", "Tight End", "Defensive Tacker", "Defensive End", "Line Backer", "Cornerback", "Safety", "Kicker"};
+            String position = randomPositions[(int) Math.floor(Math.random() * randomPositions.length)];
+            player.setPosition(position);
+
+            //sets a random height for each player 
+            int randomHeight = (int) ((Math.random() * 22) + 60);
+            player.setHeight(randomHeight);
+
+            //sets a random weight for each player 
+            int randomWeight = (int) ((Math.random() * 100) + 160);
+            player.setWeight(randomWeight);
+
+            //sets random age for each player 
+            int randomAge = (int) (Math.random() * 5) + 20;
+            player.setAge(randomAge);
+
+            //sets random 40 yard dash time for each player 
+            double randomDash40 = (((Math.random() * 6) + 4));
+            double roundDash40 = Math.round(randomDash40 * 100.0) / 100.0;
+            player.setDash40(roundDash40);
+
+            //sets random college for each player 
+            String[] randomColleges = new String[]{"OSU", "Washinton State", "Duke", "Ohio State", "Auburn",
+                "Penn State", "Texas Southern", "Villanova", "Kansas State", "Kentucky"};
+            String randomCollege = randomColleges[(int) Math.floor(Math.random() * randomColleges.length)];
+            player.setCollege(randomCollege);
+
+            //creates 20% chance player has a history of injuries
+            int randomInjury = (int) (Math.random() * 10);
+            if (randomInjury == 0) {
+                String injury = "Player has a history of injuries.";
+                player.setInjury(injury);
+            } else {
+                String injury = "Player has no history of injuries.";
+                player.setInjury(injury);
+            }
+
+            //variable sets the college exeperience for each player, if any. 
+            player.setExperience(randomAge);
+
+            //variable sets BMI for each character 
+            player.setBMI(randomWeight, randomHeight);
+
+            //adds player to available players ArrayList
+            availablePlayers.add(player);
+
+        }
+    }
+
+    //method to print all players using NFLPlayer class toString()
+    public void printAllPlayers() {
+        //this loop will call players from availablePlayers ArrayList
+        NFLPlayer playerX;
+        for (NFLPlayer availablePlayer : availablePlayers) {
+            playerX = availablePlayer;
+            System.out.println(playerX);
+            System.out.println("----------------------------------");
+        }
+    }
+
+    //this method to print specific player using NFLPlayer class toString()
+    public void printSpecificPlayer(int x) {
+        NFLPlayer playerX = availablePlayers.get(x);
+        System.out.println(playerX);
+        System.out.println("----------------------------------");
+
+    }
+
+}
