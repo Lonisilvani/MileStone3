@@ -1,0 +1,23 @@
+/*Loni Silvai 
+March 25, 2018
+Lisa Hebert
+CST-105
+
+This program starts the manager, and classes. 
+*/
+
+
+package draftfinalproject;
+
+public class DraftFinalProject {
+
+    public static void main(String[] args) {
+        
+        //driver for the Manager and NFLPlayer classes. Creates int number of players in constructor
+        Manager manager = new Manager();
+        manager.createPlayers(10);
+        
+        //driver to print a specific player at index 0 based in int constructor 
+        manager.printSpecificPlayer(0);
+        
+        
